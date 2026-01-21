@@ -3,7 +3,7 @@
  * Plugin Name: Search Widget PDA
  * Plugin URI: https://github.com/pereira-lui/search-widget
  * Description: Widget de pesquisa para Elementor. Exibe um ícone de pesquisa que abre um popup com formulário de busca para todo o site.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Lui
  * Author URI: https://github.com/pereira-lui
  * Text Domain: search-widget-pda
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('SEARCH_WIDGET_PDA_VERSION', '1.0.2');
+define('SEARCH_WIDGET_PDA_VERSION', '1.0.3');
 define('SEARCH_WIDGET_PDA_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SEARCH_WIDGET_PDA_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('SEARCH_WIDGET_PDA_PLUGIN_FILE', __FILE__);
@@ -68,6 +68,9 @@ final class Search_Widget_PDA {
         // AJAX handler for search
         add_action('wp_ajax_search_widget_pda_search', [$this, 'ajax_search']);
         add_action('wp_ajax_nopriv_search_widget_pda_search', [$this, 'ajax_search']);
+        
+        // Custom search template
+        add_filter('template_include', [$this, 'custom_search_template']);
     }
 
     /**
@@ -204,6 +207,19 @@ final class Search_Widget_PDA {
             'total' => $query->found_posts,
             'search_url' => home_url('/?s=' . urlencode($search_term)),
         ]);
+    }
+
+    /**
+     * Custom Search Template
+     */
+    public function custom_search_template($template) {
+        if (is_search()) {
+            $custom_template = SEARCH_WIDGET_PDA_PLUGIN_DIR . 'templates/search-results.php';
+            if (file_exists($custom_template)) {
+                return $custom_template;
+            }
+        }
+        return $template;
     }
 }
 
