@@ -63,14 +63,16 @@
     min-height: 22px;
     flex-shrink: 0;
     transition: var(--search-pda-transition);
-    stroke: currentColor;
-    fill: none;
+    stroke: currentColor !important;
+    fill: none !important;
 }
 
 .search-pda-trigger svg {
     transition: var(--search-pda-transition);
     flex-shrink: 0;
     display: block;
+    fill: none !important;
+    stroke: currentColor;
 }
 
 .search-pda-trigger-text {

@@ -223,7 +223,7 @@ class Search_Widget_PDA_Elementor_Widget extends \Elementor\Widget_Base {
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#1F1F1F',
                 'selectors' => [
-                    '{{WRAPPER}} .search-pda-trigger svg' => 'color: {{VALUE}}; fill: {{VALUE}};',
+                    '{{WRAPPER}} .search-pda-trigger svg' => 'color: {{VALUE}}; stroke: {{VALUE}}; fill: none;',
                     '{{WRAPPER}} .search-pda-trigger' => 'color: {{VALUE}};',
                 ],
             ]

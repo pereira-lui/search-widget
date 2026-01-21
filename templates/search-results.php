@@ -18,8 +18,9 @@ $search_args = [
     'paged' => $paged,
 ];
 
-// Permitir filtrar tipos de post
-$post_types = apply_filters('search_widget_pda_search_post_types', ['post', 'page', 'blog_post']);
+// Permitir filtrar tipos de post - buscar em todos os tipos públicos
+$all_public_post_types = get_post_types(['public' => true], 'names');
+$post_types = apply_filters('search_widget_pda_search_post_types', array_values($all_public_post_types));
 $search_args['post_type'] = $post_types;
 
 $search_results = new WP_Query($search_args);
