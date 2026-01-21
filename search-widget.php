@@ -3,7 +3,7 @@
  * Plugin Name: Search Widget PDA
  * Plugin URI: https://github.com/pereira-lui/search-widget
  * Description: Widget de pesquisa para Elementor. Exibe um ícone de pesquisa que abre um popup com formulário de busca para todo o site.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Lui
  * Author URI: https://github.com/pereira-lui
  * Text Domain: search-widget-pda
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('SEARCH_WIDGET_PDA_VERSION', '1.0.1');
+define('SEARCH_WIDGET_PDA_VERSION', '1.0.2');
 define('SEARCH_WIDGET_PDA_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('SEARCH_WIDGET_PDA_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('SEARCH_WIDGET_PDA_PLUGIN_FILE', __FILE__);

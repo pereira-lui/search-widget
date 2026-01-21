@@ -491,8 +491,8 @@ class Search_Widget_PDA_Elementor_Widget extends \Elementor\Widget_Base {
                             <?php if (!empty($popup_title)) : ?>
                             <h2 class="search-pda-popup-title"><?php echo esc_html($popup_title); ?></h2>
                             <?php endif; ?>
-                            <button class="search-pda-popup-close" aria-label="<?php _e('Fechar', 'search-widget-pda'); ?>">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <button class="search-pda-popup-close" aria-label="<?php _e('Fechar', 'search-widget-pda'); ?>" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>

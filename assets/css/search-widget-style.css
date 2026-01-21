@@ -160,19 +160,27 @@
     justify-content: center;
     width: 40px;
     height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     background: var(--search-pda-background-light);
     border: none;
     border-radius: 50%;
     cursor: pointer;
     transition: var(--search-pda-transition);
     flex-shrink: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .search-pda-popup-close svg {
     width: 20px;
     height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     color: var(--search-pda-text);
+    stroke: currentColor;
     transition: var(--search-pda-transition);
+    display: block;
 }
 
 .search-pda-popup-close:hover {
