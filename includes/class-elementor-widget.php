@@ -170,20 +170,48 @@ class Search_Widget_PDA_Elementor_Widget extends \Elementor\Widget_Base {
             [
                 'label' => __('Tamanho do Ícone', 'search-widget-pda'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
-                'size_units' => ['px'],
+                'size_units' => ['px', 'em'],
                 'range' => [
                     'px' => [
-                        'min' => 16,
-                        'max' => 80,
-                        'step' => 2,
+                        'min' => 12,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                    'em' => [
+                        'min' => 0.5,
+                        'max' => 6,
+                        'step' => 0.1,
                     ],
                 ],
                 'default' => [
                     'unit' => 'px',
-                    'size' => 24,
+                    'size' => 22,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .search-pda-trigger svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .search-pda-trigger .search-pda-icon' => 'width: {{SIZE}}{{UNIT}} !important; height: {{SIZE}}{{UNIT}} !important; min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_stroke_width',
+            [
+                'label' => __('Espessura do Traço', 'search-widget-pda'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 5,
+                        'step' => 0.5,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 2,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .search-pda-trigger .search-pda-icon' => 'stroke-width: {{SIZE}};',
                 ],
             ]
         );
@@ -443,9 +471,9 @@ class Search_Widget_PDA_Elementor_Widget extends \Elementor\Widget_Base {
                     aria-label="<?php _e('Abrir pesquisa', 'search-widget-pda'); ?>"
                     data-popup-id="search-pda-popup-<?php echo esc_attr($widget_id); ?>">
                 <?php if ($icon_type === 'icon' || $icon_type === 'icon_text') : ?>
-                <svg class="search-pda-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="M21 21l-4.35-4.35"></path>
+                <svg class="search-pda-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                    <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
                 </svg>
                 <?php endif; ?>
                 <?php if ($icon_type === 'text' || $icon_type === 'icon_text') : ?>
